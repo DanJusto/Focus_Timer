@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+
+    --bg-light: #FFFFFF;
+    --bg-dark: #121214;
+    
+    --bg-card-selected: #02799D;
+    --bg-card-normal: #E1E1E6;
+
+    --color-item-selected: #FFFFFF;
+    --color-item-normal: #323238;
+
+    --dark-bg-card-selected: #0A3442;
+    --dark-bg-card-normal: #29292E;
+
+    --dark-color-item-selected: #FFFFFF;
+    --dark-color-item-normal: #C4C4CC;
+    --dark-color-volume: #FFFFFF;
+}
+
+body {
+    background: var(--bg-light);
+    display: grid;
+    height: 100vh;
+    min-height: 720px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 19.2rem;
+}
+
+.clock {
+    font-weight: 500;
+    font-size: 12.6166rem;
+    line-height: 14.8rem;
+    display: flex;
+    text-align: center;
+    margin-bottom: 4.8rem;
+}
+
+#player {
+    display: flex;
+    gap: 4rem;
+}
+
+#sounds {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 3.2rem;
+}
+
+button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 300ms;
+}
+
+#timer button:hover {
+    transform: scale(1.1);
+}
+
+.forestVol, .rainVol, .cafeteriaVol, .fireplaceVol {
+    position: relative;
+    display: flex;
+}
+
+.forestVol:hover, .rainVol:hover, .cafeteriaVol:hover, .fireplaceVol:hover {
+    opacity: 0.8;
+}
+
+.forestVolume, .rainVolume, .cafeteriaVolume, .fireplaceVolume {
+    position: absolute;
+    z-index: 1;
+    bottom: 3.2rem;
+    left: 2.3rem;
+    appearance: none;
+    width: 9.3rem;
+    height: .40rem;
+    border-radius: 5px;  
+    background: #323238;
+    outline: none;
+    cursor: pointer;
+}
+
+.forestVolume::-webkit-slider-thumb,
+.rainVolume::-webkit-slider-thumb,
+.cafeteriaVolume::-webkit-slider-thumb,
+.fireplaceVolume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%; 
+    background: #323238;
+    cursor: pointer;
+}
+
+.darkvol, .darkvol::-webkit-slider-thumb,
+.selectedvol, .selectedvol::-webkit-slider-thumb {
+    background: white;
+}
+
+.forest svg path,
+.rain svg path,
+.cafeteria svg path,
+.fireplace svg path {
+    fill: var(--bg-card-normal);
+}
+
+.forest svg path + rect + circle + path,
+.rain svg path + rect + circle + path,
+.cafeteria svg path + rect + circle + path,
+.fireplace svg path + rect + circle + path {
+    fill: var(--color-item-normal);
+}
+
+
+.darkplayer svg path {
+    fill: var(--dark-color-item-normal);
+}
+
+.dark svg path {
+    fill: var(--dark-bg-card-normal);
+}
+
+.dark svg path + rect + circle + path {
+    fill: var(--dark-color-item-normal);
+}
+
+.selected svg path {
+    fill: var(--bg-card-selected);
+}
+
+.selected svg path + rect + circle + path {
+    fill: var(--color-item-selected);
+}
+
+.darkselected svg path {
+    fill: var(--dark-bg-card-selected);
+}
+
+.darkselected svg path + rect + circle + path {
+    fill: var(--dark-color-item-selected);
+}
+
+#timer .dark {
+    color: #FFFFFF;
+}
+
+.hide {
+    display: none;
+}
+
+.mode {
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+}
+
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6rem;
+    }
+    .clock {
+        margin-bottom: 2rem;
+    }
+    .mode {
+        top: 2.5rem;
+        right: 2.5rem;
+    }
+}
